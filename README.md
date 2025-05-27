@@ -1,47 +1,52 @@
-# Wumpus-world-pl-resolution
+#  Wumpus World Solver using PL-Resolution
 
-# Project Overview
-The Wumpus World is a grid-based environment used to illustrate intelligent agent behavior in uncertain conditions. The agent must find gold while avoiding pits and the Wumpus (a monster), using percepts and logical inference.
-This implementation uses:
-- A propositional knowledge base (KB)
--Inference using the Resolution algorithm
-- Percepts such as stench and breeze
-- Logical rules to derive safe paths
+This project demonstrates an AI agent solving the **Wumpus World** using **Propositional Logic (PL)** and the **Resolution Algorithm**. It includes a logic-based knowledge base, inference engine, agent decision logic, and an interactive GUI.
 
-  # Dependencies
-Python 3.x
-Jupyter Notebook
-No additional libraries required (uses built-in Python)
-To install Jupyter (if not already installed):
-``` bash
-pip install notebook
-```
-# How to Run
-- Clone the repository:
-  ``` bash
-  git clone https://github.com/yourusername/wumpus-world-resolution.git
-  cd wumpus-world-resolution
-  ```
-- Launch Jupyter Notebook:
-  ``` bash
-  jupyter notebook
-  ```
--  Open and run the notebook Wumpus World Puzzle by PL-Resolution Algorithm.ipynb.
+## Files Included
 
-# Key Concepts
-- Knowledge Representation: Percepts are converted into logical sentences in propositional form.
-- Inference by Resolution: The system checks entailment of new facts by trying to derive contradictions.
-- Safe Path Identification: Logical deduction is used to identify safe moves in the grid.
+- `wumpus_pl_solver.py`  
+  → Main Python script with full implementation including GUI, logic rules, agent decision-making, and evaluation.
 
-# Sample Output
-``` bash
-Inference: There is a pit at (2,3)
-Move: Safe move to (2,2)
-Gold found at (3,2)!
+- `Wumpus World Puzzle by PL-Resolution Algorithm.ipynb`  
+  → Jupyter Notebook that explains the logical reasoning, clause construction, and resolution algorithm step-by-step. Ideal for learning and presentation.
+
+## How to Run
+
+### Requirements
+- Python 3.x
+- No external libraries required (uses `tkinter`, built-in in most Python distributions)
+
+### To Run the GUI (Recommended)
+```bash
+python wumpus_pl_solver.py
 ```
 
-# Future Improvements
-- Add visualization for the Wumpus world grid.
-- Support for larger grids and multiple golds.
-- Integration with SAT solvers for performance.
+- Click on grid cells to cycle between states: Empty, Wumpus, Pit, Gold
+- Use Reset World to clear
+- Use Simulate Agent to trigger decision logic and simulate inference-based moves
+
+## Key Concepts
+- Knowledge Representation: Propositions like P(x,y) for Pit, B(x,y) for Breeze, etc.
+- PL-Resolution: Logical inference engine tests if a query (e.g., “Is (2,1) a Pit?”) is entailed by known facts
+- Agent Logic: Uses inference results to avoid hazards, grab gold, and make safe moves
+
+## Sample World Configuration
+``` bash
+world = [
+    ["Empty", "Empty", "Pit", "Empty"],
+    ["Wumpus", "Empty", "Empty", "Gold"],
+    ["Empty", "Pit", "Empty", "Empty"],
+    ["Empty", "Empty", "Empty", "Empty"]
+]
+```
+Agent success rate is calculated based on logical decisions and outcomes.
+
+## Future Improvements
+- More advanced agent movement logic
+- SAT-based reasoning for larger grids
+- Pathfinding algorithms with cost optimization
+- Enhanced visualization and animation
+
+
+
 
