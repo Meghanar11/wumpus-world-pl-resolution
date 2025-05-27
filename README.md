@@ -1,4 +1,5 @@
-# wumpus-world-pl-resolution
+# Wumpus-world-pl-resolution
+
 # Project Overview
 The Wumpus World is a grid-based environment used to illustrate intelligent agent behavior in uncertain conditions. The agent must find gold while avoiding pits and the Wumpus (a monster), using percepts and logical inference.
 This implementation uses:
