@@ -1,9 +1,5 @@
-matplotlib
-networkx
-numpy
-pandas
-scipy
-seaborn
-tqdm
-pytest
-nest_asyncio
+numpy==1.24.0
+matplotlib==3.6.3
+networkx==2.8.8
+pycosat
+pandas==1.5.3
