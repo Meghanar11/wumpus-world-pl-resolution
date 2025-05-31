@@ -1,52 +1,43 @@
 #  Wumpus World Solver using PL-Resolution
+This project implements an intelligent agent that navigates the classic Wumpus World environment. The agent uses percept-based reasoning and logical inference to find the gold, avoid pits and the Wumpus, and exit the cave safely.
 
-This project demonstrates an AI agent solving the **Wumpus World** using **Propositional Logic (PL)** and the **Resolution Algorithm**. It includes a logic-based knowledge base, inference engine, agent decision logic, and an interactive GUI.
+## Project Overview
 
-## Files Included
+Wumpus World is a grid-based environment where the agent must:
+- Explore safely based on limited percepts (`stench`, `breeze`, `glitter`)
+- Infer safe and unsafe cells using propositional logic
+- Plan actions (move, shoot, grab, climb) to achieve its goal
 
-- `wumpus_pl_solver.py`  
-  → Main Python script with full implementation including GUI, logic rules, agent decision-making, and evaluation.
+## Features
 
-- `Wumpus World Puzzle by PL-Resolution Algorithm.ipynb`  
-  → Jupyter Notebook that explains the logical reasoning, clause construction, and resolution algorithm step-by-step. Ideal for learning and presentation.
+- Logic-based inference engine using SAT (e.g., PycoSAT)
+- Percept handling and knowledge base updates
+- Agent decision-making with safe cell detection
+- Optional visualization of the environment and agent moves
+
+## Files
+
+- `wumpus_agent.py` – Core logic for the agent’s reasoning
+- `world_generator.py` – Random or predefined Wumpus World maps
+- `visualizer.py` – (Optional) Plotting/animation of the agent’s path
+- `main.py` – Entry point to simulate agent behavior
 
 ## How to Run
 
-### Requirements
-- Python 3.x
-- No external libraries required (uses `tkinter`, built-in in most Python distributions)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/ai-wumpus-world.git
+   cd ai-wumpus-world
+   ```
 
-### To Run the GUI (Recommended)
-```bash
-python wumpus_pl_solver.py
-```
+2. Install dependencies:
+   ``` bash
+   pip install -r requirements.txt
+   ```
 
-- Click on grid cells to cycle between states: Empty, Wumpus, Pit, Gold
-- Use Reset World to clear
-- Use Simulate Agent to trigger decision logic and simulate inference-based moves
-
-## Key Concepts
-- Knowledge Representation: Propositions like P(x,y) for Pit, B(x,y) for Breeze, etc.
-- PL-Resolution: Logical inference engine tests if a query (e.g., “Is (2,1) a Pit?”) is entailed by known facts
-- Agent Logic: Uses inference results to avoid hazards, grab gold, and make safe moves
-
-## Sample World Configuration
-``` bash
-world = [
-    ["Empty", "Empty", "Pit", "Empty"],
-    ["Wumpus", "Empty", "Empty", "Gold"],
-    ["Empty", "Pit", "Empty", "Empty"],
-    ["Empty", "Empty", "Empty", "Empty"]
-]
-```
-Agent success rate is calculated based on logical decisions and outcomes.
-
-## Future Improvements
-- More advanced agent movement logic
-- SAT-based reasoning for larger grids
-- Pathfinding algorithms with cost optimization
-- Enhanced visualization and animation
-
-
+3. Run the simulation:
+   ``` bash
+   python main.py
+  ```
 
 
