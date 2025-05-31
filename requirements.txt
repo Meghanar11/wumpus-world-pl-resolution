@@ -1,0 +1,9 @@
+matplotlib
+networkx
+numpy
+pandas
+scipy
+seaborn
+tqdm
+pytest
+nest_asyncio
